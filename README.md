@@ -1,7 +1,6 @@
 # Bookstore Management System
 
 ## Answer Questions
-
  *Questions* list:
 - What will the application do? 
    - It will be an application for a book store to managebookstore.  - This system will allow customer purchase books from bookstore.  - This system can search the name of the book and its authore name. 
