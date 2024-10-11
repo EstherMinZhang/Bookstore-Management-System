@@ -1,4 +1,5 @@
 package model;
+
 /**
  * Represents a book with a name, author and price.
  * Provides getter and setter methods to access and modify its fields.
@@ -9,14 +10,17 @@ public class Book {
     private double price;
 
     /**
-     * EFFECTS: Initializes a new Book object without the given bookName, author, and price.
-    */
-    public Book(){}
+     * EFFECTS: Initializes a new Book object without the given bookName, author,
+     * and price.
+     */
+    public Book() {
+    }
 
     /**
      * REQUIRES: bookName, author cannot be null; price >= 0
      * MODIFIES: this
-     * EFFECTS: initializes a new Book object with the given bookName, author and pricae.
+     * EFFECTS: initializes a new Book object with the given bookName, author and
+     * pricae.
      */
     public Book(String bookName, String author, double price) {
         this.bookName = bookName;
@@ -28,8 +32,9 @@ public class Book {
      * EFFECTS: return the current book name.
      */
     public String getBookName() {
-       return bookName;
+        return bookName;
     }
+
     /**
      * REQUIRES: bookName cannot be null
      * MODIFIES: this
@@ -43,7 +48,7 @@ public class Book {
      * EFFECTS: return the current author name.
      */
     public String getAuthor() {
-       return author;
+        return author;
     }
 
     /**
@@ -52,7 +57,7 @@ public class Book {
      * EFFECTS: Sets the author to the given value.
      */
     public void setAuthor(String author) {
-       this.author = author;
+        this.author = author;
     }
 
     /**
@@ -72,11 +77,12 @@ public class Book {
     }
 
     /**
-     * EFFECTS: return the information of the books,including bookName, author and price.
+     * EFFECTS: return the information of the books,including bookName, author and
+     * price.
      */
     public String toString() {
         return "The book name is " + bookName + ".\n" +
-               "The author of the book is " + author + ".\n" +
-               "The price of the book is " + price + ".\n";
+                "The author of the book is " + author + ".\n" +
+                "The price of the book is " + price + ".\n";
     }
 }
