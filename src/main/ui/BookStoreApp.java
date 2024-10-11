@@ -11,6 +11,8 @@ import java.util.Scanner;
  */
 
 public class BookStoreApp {
+    private BookManager bookManager;
+    private Scanner scanner;
 
     /**
      * MODIFIES: this
@@ -18,7 +20,10 @@ public class BookStoreApp {
      * handle user interaction.
      */
     public BookStoreApp() {
-        // stub
+        bookManager = new BookManager();
+        scanner = new Scanner(System.in);
+        init();
+
     }
 
     /**
@@ -26,7 +31,36 @@ public class BookStoreApp {
      * EFFECTS: Executes add, remove, edit, or show books from user slection.
      */
     public void init() {
-        // stub
+        while(true) {
+            System.out.println("1. Add a book.");
+            System.out.println("2. Remove a book.");
+            System.out.println("3. Edit a book.");
+            System.out.println("4. Show all books.");
+            System.out.println("5. Exit");
+            System.out.println("Please select what do you want to do. Number only.");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    removeBook();
+                    break;
+                case 3:
+                    editBook();
+                    break;
+                case 4:
+                    bookManager.showBooks();
+                case 5:
+                    System.out.println("App will be closed.");
+                    return;
+                default:
+                    System.out.println("Invalid input. Please input a integer number. Please try agian. ");
+
+            }
+        }
     }
 
     /**
@@ -35,7 +69,16 @@ public class BookStoreApp {
      * EFFECTS: Adds a new book to the books list based on user input.
      */
     private void addBook() {
-        // stub
+        System.out.println("Please enter book name");
+        String name = scanner.nextLine();
+        System.out.println("Please enter author");
+        String author = scanner.nextLine();
+        System.out.println("Please enter price.");
+        double price = scanner.nextDouble();
+        scanner.nextLine();
+        Book newBook = new Book(name, author, price);
+        bookManager.addBook(newBook);
+        System.out.println("Book has been added succusssfully.");
     }
 
     /**
@@ -44,7 +87,10 @@ public class BookStoreApp {
      * EFFECTS: Removes a book from the list based on the user's input.
      */
     private void removeBook() {
-        // stub
+        System.out.println("Please enter the book name to edit.");
+        String name = scanner.nextLine();
+        bookManager.removeBook(name);
+        System.out.println("Book has been removed successfully.");
     }
 
     /**
@@ -54,6 +100,14 @@ public class BookStoreApp {
      * user input.
      */
     private void editBook() {
-        // stub
+        System.out.println("Please enter the book name to edit.");
+        String name = scanner.nextLine();
+        System.out.println("Please enter new author.");
+        String newAuthor = scanner.nextLine();
+        System.out.println("Please enter new price");
+        double newPrice = scanner.nextDouble();
+        scanner.nextLine();
+        bookManager.editBook(name, newAuthor, newPrice);
+        System.out.println("Book has been edited successfully
     }
 }
