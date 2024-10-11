@@ -51,3 +51,10 @@ public class BookManager {
         //stub
 
     }
+    /**
+     * EFFECTS: return the current line of book list.
+     */
+    public ArrayList<Book> getBooks() {
+       return null;
+    }
+}
