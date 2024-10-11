@@ -6,7 +6,7 @@
    - It will be an application for a book store to managebookstore.  
    - This system will allow customer purchase books from bookstore.  
    - This system can search the name of the book and its authore name. 
-   - This system will ask cllients how many books they want to buy, and then calculate the total price,
+   - This system will ask cllients how many books they want to buy, and then calculate the total price.
 - Who will use it? 
    - The **cashiers** working at the bookstore. 
 - Why is this project interested to you?
