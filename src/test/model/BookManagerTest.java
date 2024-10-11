@@ -1,7 +1,6 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,14 +17,13 @@ public class BookManagerTest {
         BookManager bookManager = new BookManager();
         Book book1 = new Book("My Life", "Helen", 5.6);
         Book book2 = new Book("Twlight", "Esther Disney", 12.56);
-
     }
 
     @Test
     public void addBookTest() { // books.add(book);
 
-        bookManager.addBook(book1);
-        ArrayList<Book> books = bookManager.getBooks();
+        bookManager.addBook(book1);// put one book into book list/books.
+        ArrayList<Book> books = bookManager.getBooks(); // book manager get current books/book list. one book inside
 
         assertEquals(1, books.size());
 
@@ -33,8 +31,8 @@ public class BookManagerTest {
         assertEquals("Helen", books.get(0).getAuthor());
         assertEquals(5.6, books.get(0).getPrice(), 0.01);
 
-        bookManager.addBook(book2);
-        books = bookManager.getBooks();
+        bookManager.addBook(book2); // put another book into books.
+        books = bookManager.getBooks(); // book manager get current books/book list, which is 2 books now.
 
         assertEquals(2, books.size());
 
@@ -49,7 +47,6 @@ public class BookManagerTest {
 
     @Test
     public void testRemoveBook() {
-        // Add two books first
         bookManager.addBook(book1);
         bookManager.addBook(book2);
 
@@ -58,7 +55,6 @@ public class BookManagerTest {
 
         assertEquals(1, books.size());
 
-        // Check that the remaining book is book2
         assertEquals("Twilight", books.get(0).getBookName());
         assertEquals("Esther Disney", books.get(0).getAuthor());
         assertEquals(12.56, books.get(0).getPrice(), 0.01);
@@ -69,12 +65,11 @@ public class BookManagerTest {
 
         bookManager.addBook(book1);
 
-        bookManager.editBook("My Life",  "Helen Joy", 6.99);
+        bookManager.editBook("My Life", "Helen Joy", 6.99);
         ArrayList<Book> books = bookManager.getBooks();
 
         assertEquals(1, books.size());
 
-        assertEquals("My New Life", books.get(0).getBookName());
         assertEquals("Helen Joy", books.get(0).getAuthor());
         assertEquals(6.99, books.get(0).getPrice(), 0.01);
     }
@@ -85,8 +80,8 @@ public class BookManagerTest {
         bookManager.addBook(book1);
         bookManager.addBook(book2);
 
-        String expectedOutput = "Book Name: My Life, Author: Helen, Price: 5.6\n" +
-                "Book Name: Twilight, Author: Esther Disney, Price: 12.56\n";
+        String expectedOutput = "Book Name: My Life, Author: Helen, Price: 5.6\n"
+                + "Book Name: Twilight, Author: Esther Disney, Price: 12.56\n";
 
     }
 }

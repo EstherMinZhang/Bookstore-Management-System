@@ -11,7 +11,7 @@ public class BookManager {
 
     /**
      * MODIFIES: this
-     * EFFECTS: Initializes an empty ArrayList<Book>.
+     * EFFECTS: declares an new ArrayList<Book>
      */
     public BookManager() {
         books = new ArrayList<>();
