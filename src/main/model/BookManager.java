@@ -23,7 +23,7 @@ public class BookManager {
      * EFFECTS: adds a book to the book lists.
      */
     public void addBook(Book book) {
-        // stub
+        books.add(book);
     }
 
     /**
@@ -33,8 +33,13 @@ public class BookManager {
      * ingore case.
      */
     public void removeBook(String bookName) {
-        // stub
-
+        for (int i = 0; i < books.size(); i++) {
+            Book book = books.get(i);
+            if (book.getBookName().equalsIgnoreCase(bookName)) {
+                books.remove(i);
+                break;
+            }
+        }
     }
 
     /**
@@ -44,21 +49,28 @@ public class BookManager {
      * and ingore case.
      */
     public void editBook(String bookName, String newAuthor, double newPrice) {
-        // stub
+        for (Book book : books) {
+            if (book.getBookName().equalsIgnoreCase(bookName)) {
+                book.setAuthor(newAuthor);
+                book.setPrice(newPrice);
+                break;
+            }
+        }
     }
 
     /**
      * EFFECTS: prints the information of all books in the list.
      */
     public void showBooks() {
-        // stub
-
+        for (Book book : books) {
+            System.out.println(book);
+        }
     }
 
     /**
      * EFFECTS: return the current line of book list.
      */
     public ArrayList<Book> getBooks() {
-        return null;
+        return books;
     }
 }
