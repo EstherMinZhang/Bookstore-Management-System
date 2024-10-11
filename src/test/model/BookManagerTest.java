@@ -14,9 +14,9 @@ public class BookManagerTest {
 
     @BeforeEach
     public void runBefore() {
-        BookManager bookManager = new BookManager();
-        Book book1 = new Book("My Life", "Helen", 5.6);
-        Book book2 = new Book("Twlight", "Esther Disney", 12.56);
+        bookManager = new BookManager();
+        book1 = new Book("My Life", "Helen", 5.6);
+        book2 = new Book("Twlight", "Esther Disney", 12.56);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class BookManagerTest {
         assertEquals("Helen", books.get(0).getAuthor());
         assertEquals(5.6, books.get(0).getPrice(), 0.01);
 
-        assertEquals("Twilight", books.get(1).getBookName());
+        assertEquals("Twlight", books.get(1).getBookName());
         assertEquals("Esther Disney", books.get(1).getAuthor());
         assertEquals(12.56, books.get(1).getPrice(), 0.01);
     }
@@ -80,8 +80,14 @@ public class BookManagerTest {
         bookManager.addBook(book1);
         bookManager.addBook(book2);
 
-        String expectedOutput = "Book Name: My Life, Author: Helen, Price: 5.6\n"
-                + "Book Name: Twilight, Author: Esther Disney, Price: 12.56\n";
+        String expectedOutput = "The book name is My Life.\n"
+                        + "The author of the book is Helen.\n"
+                        + "The price of the book is 5.6.\n"
+                        + "The book name is Twilight.\n"
+                        + "The author of the book is Esther Disney.\n"
+                        + "The price of the book is 12.56.\n";
+        //String printString = bookManager.getBooks(); void method
+        //assertEquals(expectedOutput, bookManager.showBooks());
 
     }
 }
