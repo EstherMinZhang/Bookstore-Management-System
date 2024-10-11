@@ -59,7 +59,7 @@ public class BookTest {
     public void toStringTest() {
         String str = "The book name is Harry Potter. \n"
                 + "The author of the book is J.K.Rowling. \n"
-                + "The price of the book is J.K.Rowling. \n";
+                + "The price of the book is 9.85. \n";
         assertEquals(str, book.toString());
     }
 
