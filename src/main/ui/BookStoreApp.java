@@ -108,6 +108,6 @@ public class BookStoreApp {
         double newPrice = scanner.nextDouble();
         scanner.nextLine();
         bookManager.editBook(name, newAuthor, newPrice);
-        System.out.println("Book has been edited successfully
+        System.out.println("Book has been edited successfully");
     }
 }
