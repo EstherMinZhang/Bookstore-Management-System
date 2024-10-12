@@ -30,7 +30,8 @@ public class BookStoreApp {
      * MODIFIES: this.books
      * EFFECTS: Executes add, remove, edit, or show books from user slection.
      */
-   public void init() {
+    @SuppressWarnings("methodlength")
+    public void init() {
         while (true) {
             System.out.println("1. Add a book.");
             System.out.println("2. Remove a book.");
@@ -53,6 +54,7 @@ public class BookStoreApp {
                     break;
                 case 4:
                     bookManager.showBooks();
+                    break;
                 case 5:
                     System.out.println("App will be closed.");
                     return;
