@@ -55,7 +55,7 @@ public class BookManagerTest {
 
         assertEquals(1, books.size());
 
-        assertEquals("Twilight", books.get(0).getBookName());
+        assertEquals("Twlight", books.get(0).getBookName());
         assertEquals("Esther Disney", books.get(0).getAuthor());
         assertEquals(12.56, books.get(0).getPrice(), 0.01);
     }
