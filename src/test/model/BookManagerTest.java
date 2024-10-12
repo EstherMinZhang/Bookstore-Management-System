@@ -80,14 +80,15 @@ public class BookManagerTest {
         bookManager.addBook(book1);
         bookManager.addBook(book2);
 
-        String expectedOutput = "The book name is My Life.\n"
-                        + "The author of the book is Helen.\n"
-                        + "The price of the book is 5.6.\n"
-                        + "The book name is Twilight.\n"
-                        + "The author of the book is Esther Disney.\n"
-                        + "The price of the book is 12.56.\n";
-        //String printString = bookManager.getBooks(); void method
-        //assertEquals(expectedOutput, bookManager.showBooks());
+        String expectedOutput = "[book name : My Life\n"
+                        + "author : Helen\n"
+                        + "price : 5.6\n"
+                        + ", "
+                        + "book name : Twlight\n"
+                        + "author : Esther Disney\n"
+                        + "price : 12.56\n]";
+        String printString = bookManager.getBooks().toString();
+        assertEquals(expectedOutput, printString);
 
     }
 }
