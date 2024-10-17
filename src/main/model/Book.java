@@ -13,8 +13,8 @@ public class Book {
      * EFFECTS: Initializes a new Book object without the given bookName, author,
      * and price.
      */
-    public Book() {
-    }
+    // public Book() {
+    // }
 
     /**
      * REQUIRES: bookName, author cannot be null; price >= 0

@@ -54,10 +54,12 @@ public class BookManagerTest {
         ArrayList<Book> books = bookManager.getBooks();
 
         assertEquals(1, books.size());
-
         assertEquals("Twlight", books.get(0).getBookName());
         assertEquals("Esther Disney", books.get(0).getAuthor());
         assertEquals(12.56, books.get(0).getPrice(), 0.01);
+
+    
+
     }
 
     @Test
@@ -72,6 +74,9 @@ public class BookManagerTest {
 
         assertEquals("Helen Joy", books.get(0).getAuthor());
         assertEquals(6.99, books.get(0).getPrice(), 0.01);
+  
+
+        
     }
 
     @Test
