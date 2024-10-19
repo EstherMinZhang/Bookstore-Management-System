@@ -2,7 +2,9 @@ package ui;
 
 import model.Book;
 import model.BookManager;
+import persistence.JsonReader;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -11,8 +13,10 @@ import java.util.Scanner;
  */
 
 public class BookStoreApp {
+    private static final String JSON_STORE = "./data/bookstore.json";
     private BookManager bookManager;
     private Scanner scanner;
+    private JsonReader jsonReader;
 
     /**
      * MODIFIES: this
@@ -22,9 +26,11 @@ public class BookStoreApp {
     public BookStoreApp() {
         bookManager = new BookManager();
         scanner = new Scanner(System.in);
+        jsonReader = new JsonReader(JSON_STORE);
         init();
-
+        
     }
+
 
     /**
      * MODIFIES: this.books
@@ -38,6 +44,8 @@ public class BookStoreApp {
             System.out.println("3. Edit a book.");
             System.out.println("4. Show all books.");
             System.out.println("5. Exit");
+            System.out.println("6. load data");
+            
             System.out.println("Please select what do you want to do. Number only.");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -58,6 +66,14 @@ public class BookStoreApp {
                 case 5:
                     System.out.println("App will be closed.");
                     return;
+                case 6:
+                    try {
+                        bookManager = jsonReader.read();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    break;
                 default:
                     System.out.println("Invalid input. Please input a integer number. Please try agian. ");
 
