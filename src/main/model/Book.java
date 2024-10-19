@@ -81,8 +81,8 @@ public class Book {
      * price.
      */
     public String toString() {
-        return "book name : " + bookName + "\n" +
-                "author : " + author + "\n" +
-                "price : " + price + "\n";
+        return "book name : " + bookName + "\n"
+                + "author : " + author + "\n"
+                + "price : " + price + "\n";
     }
 }
