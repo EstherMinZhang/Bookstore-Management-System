@@ -11,7 +11,7 @@ import org.json.*;
 import model.Book;
 import model.BookManager;
 
-// Represents a reader that reads workroom from JSON data stored in file
+// Represents a reader that reads bookManager from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -39,15 +39,15 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses bookManager from JSON object and returns it
     private BookManager parseBookManager(JSONObject jsonObject) {
         BookManager bm = new BookManager();
-        addBooks(bm, jsonObject);
-        return bm;
+        addBooks(bm, jsonObject); // what happens here？
+        return bm; // any new thing returned?
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // MODIFIES: bm
+    // EFFECTS: parses books from JSON object and adds them to bookManager
     private void addBooks(BookManager bm, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("books");
         for (Object json : jsonArray) {
@@ -56,8 +56,8 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // MODIFIES: bm
+    // EFFECTS: parses book from JSON object and adds it to bookmanager
     private void addBook(BookManager bm, JSONObject jsonObject) {
         String bookName = jsonObject.getString("bookName");
         String author = jsonObject.getString("author");
