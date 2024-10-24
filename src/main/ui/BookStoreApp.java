@@ -3,7 +3,9 @@ package ui;
 import model.Book;
 import model.BookManager;
 import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,6 +19,7 @@ public class BookStoreApp {
     private BookManager bookManager;
     private Scanner scanner;
     private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
 
     /**
      * MODIFIES: this
@@ -27,10 +30,10 @@ public class BookStoreApp {
         bookManager = new BookManager();
         scanner = new Scanner(System.in);
         jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
         init();
-        
-    }
 
+    }
 
     /**
      * MODIFIES: this.books
@@ -43,9 +46,11 @@ public class BookStoreApp {
             System.out.println("2. Remove a book.");
             System.out.println("3. Edit a book.");
             System.out.println("4. Show all books.");
-            System.out.println("5. Exit");
-            System.out.println("6. load data");
             
+            System.out.println("5. load data");//was 6
+            System.out.println("6. save data");//was 7
+            System.out.println("7. Exit");//was 5
+
             System.out.println("Please select what do you want to do. Number only.");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -64,16 +69,18 @@ public class BookStoreApp {
                     bookManager.showBooks();
                     break;
                 case 5:
-                    System.out.println("App will be closed.");
-                    return;
-                case 6:
                     try {
                         bookManager = jsonReader.read();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                     break;
+                case 6:
+                    saveBookManager();
+                    break;
+                case 7:
+                    System.out.println("App will be closed.");
+                    return;
                 default:
                     System.out.println("Invalid input. Please input a integer number. Please try agian. ");
 
@@ -127,5 +134,17 @@ public class BookStoreApp {
         scanner.nextLine();
         bookManager.editBook(name, newAuthor, newPrice);
         System.out.println("Book has been edited successfully");
+    }
+
+    // EFFECTS: saves the bookManager to file
+    private void saveBookManager() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(bookManager);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 }
