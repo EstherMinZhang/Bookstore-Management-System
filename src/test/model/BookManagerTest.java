@@ -18,6 +18,11 @@ public class BookManagerTest {
         book1 = new Book("My Life", "Helen", 5.6);
         book2 = new Book("Twlight", "Esther Disney", 12.56);
     }
+    @Test
+    public void testConstruction() {
+        assertEquals(0, bookManager.getBooks().size());
+        
+    }
 
     @Test
     public void addBookTest() { // books.add(book);

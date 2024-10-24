@@ -15,7 +15,7 @@ class JsonReaderTest extends JsonTest {
     void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");// how to change?
         try {
-            BookManager bm = reader.read();
+            reader.read();
             fail("IOException expected");
         } catch (IOException e) {
             // pass

@@ -18,7 +18,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            BookManager bm = new BookManager();
+            new BookManager();
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");// need change?
             writer.open();
             fail("IOException was expected");
