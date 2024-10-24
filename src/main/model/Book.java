@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a book with a name, author and price.
 // Provides getter and setter methods to access and modify its fields.
 //
-public class Book {
+public class Book implements Writable {
     private String bookName;
     private String author;
     private double price;
@@ -62,5 +66,15 @@ public class Book {
         return "book name : " + bookName + "\n"
                 + "author : " + author + "\n"
                 + "price : " + price + "\n";
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("bookName", bookName);        
+        json.put("author", author);  
+        json.put("price", price);  
+
+        return json;
     }
 }

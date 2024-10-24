@@ -2,11 +2,16 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 /**
  * Manages a collection of books. Provides methods to add, remove, edit, and
  * display books.
  */
-public class BookManager {
+public class BookManager implements Writable {
     private ArrayList<Book> books;
 
     //MODIFIES: this
@@ -62,5 +67,23 @@ public class BookManager {
      // EFFECTS: return the current line of book list.
     public ArrayList<Book> getBooks() {
         return books;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("books", booksToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray booksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Book b : books) {
+            jsonArray.put(b.toJson());
+        }
+
+        return jsonArray;
     }
 }
