@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 /**
- * Manages a collection of books. Provides methods to add, remove, edit, and
+ * Manages a collection of books. Provides methods to add, remove, edit, save, load and
  * display books.
  */
 public class BookManager implements Writable {
