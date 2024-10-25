@@ -14,6 +14,8 @@
 
 ## User Stories
 - As a user, I want to be able to add a book to my bookstore.
-- As a user, I wnat to be able to vew the list of categories in my bookstore.
-- As a user, I wnat to be able to edit the list of categories in my bookstore.
-- As a user, I wnat to be able to remove the list of categories in my bookstore.
+- As a user, I wnat to be able to vew the list of books in my bookstore.
+- As a user, I wnat to be able to edit the list of books in my bookstore.
+- As a user, I wnat to be able to remove the list of books in my bookstore.
+- As a user, I wnat to be able to save the list of books in my bookstore.
+- As a user, I wnat to be able to load the list of books in my bookstore.
