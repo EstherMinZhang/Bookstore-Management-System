@@ -6,7 +6,6 @@ import persistence.Writable;
 
 // Represents a book with a name, author and price.
 // Provides getter and setter methods to access and modify its fields.
-//
 public class Book implements Writable {
     private String bookName;
     private String author;
@@ -22,20 +21,19 @@ public class Book implements Writable {
         this.price = price;
     }
 
-     // EFFECTS: return the current book name.
+    // EFFECTS: return the current book name.
     public String getBookName() {
         return bookName;
     }
 
-
-     // REQUIRES: bookName cannot be null
-     // MODIFIES: this
-     // EFFECTS: Sets the book name to the given value.
+    // REQUIRES: bookName cannot be null
+    // MODIFIES: this
+    // EFFECTS: Sets the book name to the given value.
     public void setBookName(String bookName) {
         this.bookName = bookName;
     }
 
-     // EFFECTS: return the current author name.
+    // EFFECTS: return the current author name.
     public String getAuthor() {
         return author;
     }
@@ -43,27 +41,26 @@ public class Book implements Writable {
     // REQUIRES: author cannot be null
     // MODIFIES: this
     // EFFECTS: Sets the author to the given value.
-    //
     public void setAuthor(String author) {
         this.author = author;
     }
 
-     // EFFECTS: return the current book price.
+    // EFFECTS: return the current book price.
     public double getPrice() {
         return price;
     }
 
-     // REQUIRES: prive >= 0.
-     // MODIFIES: this
-     // EFFECTS: Sets the price to the given value.
+    // REQUIRES: prive >= 0.
+    // MODIFIES: this
+    // EFFECTS: Sets the price to the given value.
     public void setPrice(double price) {
         this.price = price;
     }
 
-     // EFFECTS: return the information of the books,including bookName, author and
-     // price.
+    // EFFECTS: return the information of the books,including bookName, author and
+    // price. 
     public String toString() {
-        return "book name : " + bookName + "\n"
+        return "book name : " + bookName + "\n" 
                 + "author : " + author + "\n"
                 + "price : " + price + "\n";
     }
