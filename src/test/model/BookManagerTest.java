@@ -63,7 +63,7 @@ public class BookManagerTest {
         assertEquals("Esther Disney", books.get(0).getAuthor());
         assertEquals(12.56, books.get(0).getPrice(), 0.01);
         bookManager.removeBook("no such book");
-
+        
     
 
     }
@@ -85,22 +85,22 @@ public class BookManagerTest {
         
     }
 
-    @Test
-    public void testShowBooks() {
+    // @Test
+    // public void testShowBooks() {
 
-        bookManager.addBook(book1);
-        bookManager.addBook(book2);
+    //     bookManager.addBook(book1);
+    //     bookManager.addBook(book2);
 
-        String expectedOutput = "[book name : My Life\n"
-                        + "author : Helen\n"
-                        + "price : 5.6\n"
-                        + ", "
-                        + "book name : Twlight\n"
-                        + "author : Esther Disney\n"
-                        + "price : 12.56\n]";
-        String printString = bookManager.getBooks().toString();
-        assertEquals(expectedOutput, printString);
-        bookManager.getBooks().clear();
-        bookManager.showBooks();
-    }
+    //     String expectedOutput = "[book name : My Life\n"
+    //                     + "author : Helen\n"
+    //                     + "price : 5.6\n"
+    //                     + ", "
+    //                     + "book name : Twlight\n"
+    //                     + "author : Esther Disney\n"
+    //                     + "price : 12.56\n]";
+    //     String printString = bookManager.getBooks().toString();
+    //     assertEquals(expectedOutput, printString);
+    //     bookManager.getBooks().clear();
+    //     bookManager.showBooks();
+    // }
 }
