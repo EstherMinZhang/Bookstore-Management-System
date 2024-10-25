@@ -7,6 +7,7 @@ import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -66,7 +67,8 @@ public class BookStoreApp {
                     editBook();
                     break;
                 case 4:
-                    bookManager.showBooks();
+                    showBooks();
+
                     break;
                 case 5:
                     try {
@@ -134,6 +136,22 @@ public class BookStoreApp {
         scanner.nextLine();
         bookManager.editBook(name, newAuthor, newPrice);
         System.out.println("Book has been edited successfully");
+    }
+
+    // Effects: If the book list is empty, prints "No books available."
+    // Otherwise, prints the details of each book, including its name, author, and price.
+    public void showBooks() {
+        ArrayList<Book> bookList = bookManager.getBooks();  
+
+        if (bookList.isEmpty()) {
+            System.out.println("No books available.");
+        } else {
+            for (Book book : bookList) {
+                System.out.println("Book Name: " + book.getBookName() 
+                        + ", Author: " + book.getAuthor() 
+                        + ", Price: $" + book.getPrice());
+            }
+        }
     }
 
     // EFFECTS: saves the bookManager to file

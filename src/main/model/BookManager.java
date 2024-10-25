@@ -14,20 +14,19 @@ import persistence.Writable;
 public class BookManager implements Writable {
     private ArrayList<Book> books;
 
-    //MODIFIES: this
-    //EFFECTS: declares an new ArrayList<Book>
+    // MODIFIES: this
+    // EFFECTS: declares an new ArrayList<Book>
     public BookManager() {
         books = new ArrayList<>();
     }
 
-     // REQUIRES; book cannot be null
-     // MODIFIES: this.Book
-     // EFFECTS: adds a book to the book lists.
-     //
+    // REQUIRES; book cannot be null
+    // MODIFIES: this.Book
+    // EFFECTS: adds a book to the book lists.
+    //
     public void addBook(Book book) {
         books.add(book);
     }
-
 
     // REQUIRES; bookName cannot be null
     // MODIFIES: this.books
@@ -43,10 +42,10 @@ public class BookManager implements Writable {
         }
     }
 
-     // REQUIRES; bookName and newAuthor cannot be null; newPrive >= 0
-     // MODIFIES: this.books
-     // EFFECTS: edits the author and price of the book which mathces the book name
-     // and ingore case.
+    // REQUIRES; bookName and newAuthor cannot be null; newPrive >= 0
+    // MODIFIES: this.books
+    // EFFECTS: edits the author and price of the book which mathces the book name
+    // and ingore case.
     public void editBook(String bookName, String newAuthor, double newPrice) {
         for (Book book : books) {
             if (book.getBookName().equalsIgnoreCase(bookName)) {
@@ -57,14 +56,14 @@ public class BookManager implements Writable {
         }
     }
 
-     // EFFECTS: prints the information of all books in the list.
-    public void showBooks() {
-        for (Book book : books) {
-            System.out.println(book);
-        }
-    }
+    // EFFECTS: prints the information of all books in the list.
+    // public void showBooks() {
+    // for (Book book : books) {
+    // System.out.println(book);
+    // }
+    // }
 
-     // EFFECTS: return the current line of book list.
+    // EFFECTS: return the current line of book list.
     public ArrayList<Book> getBooks() {
         return books;
     }
@@ -76,7 +75,7 @@ public class BookManager implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns books in this bookmanager as a JSON array
     private JSONArray booksToJson() {
         JSONArray jsonArray = new JSONArray();
 
