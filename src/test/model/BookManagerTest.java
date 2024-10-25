@@ -18,10 +18,10 @@ public class BookManagerTest {
         book1 = new Book("My Life", "Helen", 5.6);
         book2 = new Book("Twlight", "Esther Disney", 12.56);
     }
+
     @Test
     public void testConstruction() {
         assertEquals(0, bookManager.getBooks().size());
-        
     }
 
     @Test
@@ -62,6 +62,7 @@ public class BookManagerTest {
         assertEquals("Twlight", books.get(0).getBookName());
         assertEquals("Esther Disney", books.get(0).getAuthor());
         assertEquals(12.56, books.get(0).getPrice(), 0.01);
+        bookManager.removeBook("no such book");
 
     
 
@@ -79,8 +80,8 @@ public class BookManagerTest {
 
         assertEquals("Helen Joy", books.get(0).getAuthor());
         assertEquals(6.99, books.get(0).getPrice(), 0.01);
-  
 
+        bookManager.editBook("No this book", "no this author", 15);
         
     }
 
@@ -99,6 +100,7 @@ public class BookManagerTest {
                         + "price : 12.56\n]";
         String printString = bookManager.getBooks().toString();
         assertEquals(expectedOutput, printString);
-
+        bookManager.getBooks().clear();
+        bookManager.showBooks();
     }
 }
