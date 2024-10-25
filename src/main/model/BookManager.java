@@ -56,13 +56,6 @@ public class BookManager implements Writable {
         }
     }
 
-    // EFFECTS: prints the information of all books in the list.
-    // public void showBooks() {
-    // for (Book book : books) {
-    // System.out.println(book);
-    // }
-    // }
-
     // EFFECTS: return the current line of book list.
     public ArrayList<Book> getBooks() {
         return books;

@@ -13,7 +13,7 @@ class JsonReaderTest extends JsonTest {
 
     @Test
     void testReaderNonExistentFile() {
-        JsonReader reader = new JsonReader("./data/noSuchFile.json");// how to change?
+        JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
             reader.read();
             fail("IOException expected");

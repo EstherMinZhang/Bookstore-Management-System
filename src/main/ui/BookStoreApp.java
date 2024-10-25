@@ -43,18 +43,21 @@ public class BookStoreApp {
     @SuppressWarnings("methodlength")
     public void init() {
         while (true) {
+            System.out.println("----------------------------------------------------");
             System.out.println("1. Add a book.");
             System.out.println("2. Remove a book.");
             System.out.println("3. Edit a book.");
             System.out.println("4. Show all books.");
             
-            System.out.println("5. load data");//was 6
-            System.out.println("6. save data");//was 7
-            System.out.println("7. Exit");//was 5
+            System.out.println("5. Load data");
+            System.out.println("6. Save data");
+            System.out.println("7. Exit");
 
             System.out.println("Please select what do you want to do. Number only.");
+            System.out.println("----------------------------------------------------");
             int choice = scanner.nextInt();
             scanner.nextLine();
+
 
             switch (choice) {
                 case 1:
