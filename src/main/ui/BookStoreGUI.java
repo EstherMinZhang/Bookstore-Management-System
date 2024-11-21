@@ -24,6 +24,7 @@ public class BookStoreGUI extends JFrame {
     private JTextField priceField;
     private JTextArea displayArea;
 
+    @SuppressWarnings("methodlength")
     public BookStoreGUI() {
         super("Book Store App");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,7 +36,8 @@ public class BookStoreGUI extends JFrame {
         jsonWriter = new JsonWriter(JSON_STORE);
 
         // 提示框提醒用户加载数据
-        int option = JOptionPane.showConfirmDialog(this, "Do you want to load data?", "Load Data", JOptionPane.YES_NO_OPTION);
+        int option = JOptionPane.showConfirmDialog(this, "Do you want to load data?", 
+                "Load Data", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             loadData();
         }
