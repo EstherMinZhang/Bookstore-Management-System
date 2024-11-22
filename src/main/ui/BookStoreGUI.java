@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
+// BookStoreGUI is the graphical user class for managing the bookstore.
+// It allows the user to add, remove, edit, display, load, and save books in the store.
 public class BookStoreGUI extends JFrame {
     private static final String JSON_STORE = "./data/bookstore.json";
     private BookManager bookManager;
@@ -23,7 +26,10 @@ public class BookStoreGUI extends JFrame {
     private JTextField authorField;
     private JTextField priceField;
     private JTextArea displayArea;
-
+   
+    // Modifies: The GUI components (text fields, buttons, etc.)
+    // Effects: Creates a window, sets up the layout, initializes the book manager, 
+    // and handles data loading.
     @SuppressWarnings("methodlength")
     public BookStoreGUI() {
         super("Book Store App");
@@ -35,7 +41,6 @@ public class BookStoreGUI extends JFrame {
         jsonReader = new JsonReader(JSON_STORE);
         jsonWriter = new JsonWriter(JSON_STORE);
 
-        // 提示框提醒用户加载数据
         int option = JOptionPane.showConfirmDialog(this, "Do you want to load data?", 
                 "Load Data", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
@@ -137,7 +142,8 @@ public class BookStoreGUI extends JFrame {
         setVisible(true);
     }
 
-    // Load data from file
+    // Modifies: The bookManager object (sets the books list)
+    // Effects: Reads the JSON file and loads the book data into the application.
     private void loadData() {
         try {
             bookManager = jsonReader.read();
@@ -147,7 +153,9 @@ public class BookStoreGUI extends JFrame {
         }
     }
 
-    // Save data to file
+    // Requires: A valid bookManager with books to save
+    // Modifies: The file at JSON_STORE by writing book data into it
+    // Effects: Writes the current list of books to the JSON file
     private void saveData() {
         try {
             jsonWriter.open();
@@ -159,6 +167,9 @@ public class BookStoreGUI extends JFrame {
         }
     }
 
+    // Requires: The user to input valid book name, author, and price
+    // Modifies: The bookManager by adding a new book
+    // Effects: Adds a new book to the bookManager and shows a success message.
     private class AddButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -176,7 +187,10 @@ public class BookStoreGUI extends JFrame {
             JOptionPane.showMessageDialog(null, "Book added successfully.");
         }
     }
-
+    
+    // Requires: The user to input a valid book name
+    // Modifies: The bookManager by removing a book
+    // Effects: Removes the book from the bookManager and shows a success message.
     private class RemoveButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -185,7 +199,10 @@ public class BookStoreGUI extends JFrame {
             JOptionPane.showMessageDialog(null, "Book removed successfully.");
         }
     }
-
+    
+    // Requires: The user to input a valid book name, new author, and new price
+    // Modifies: The bookManager by editing an existing book
+    // Effects: Edits the book in the bookManager and shows a success message.
     private class EditButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -202,7 +219,9 @@ public class BookStoreGUI extends JFrame {
             JOptionPane.showMessageDialog(null, "Book edited successfully.");
         }
     }
-
+    
+    // Modifies: The displayArea (sets the text content)
+    // Effects: Displays all books in the bookManager in the text area.
     private class ShowButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -214,14 +233,18 @@ public class BookStoreGUI extends JFrame {
             }
         }
     }
-
+    
+    // Modifies: The bookManager object (sets the books list)
+    // Effects: Loads the book data into the application from the file.
     private class LoadButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             loadData();
         }
     }
-
+    
+    // Modifies: The file at JSON_STORE by writing book data into it
+    // Effects: Saves the current book data to the JSON file.
     private class SaveButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
