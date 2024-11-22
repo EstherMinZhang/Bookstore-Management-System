@@ -19,3 +19,11 @@
 - As a user, I want to be able to remove the list of books in my bookstore.
 - As a user, I want to be able to save the list of books in my bookstore.
 - As a user, I want to be able to load the list of books in my bookstore.
+
+## Instructions for End User
+- You can add multiple books to a BookManager by clicking the "Add" button after entering the book name, author, and price.
+- You can generate the first required action related to the user story "edit the list of books in my bookstore" by clicking the "Edit" button after entering the book name, the new author, and the new price.
+- You can generate the second required action related to the user story "remove the list of books in my bookstore" by clicking the "Remove" button after entering the book name.
+- You can locate my visual component on the front page, which is a welcome picture.
+- You can save the state of my application by clicking the "Save" button. Alternatively, when you click the "Exit" button, the system will ask if you want to save your progress.
+- You can reload the state of my application by clicking the "Load" button. Alternatively, when you open the application, the system will ask if you want to load the previously saved data.
