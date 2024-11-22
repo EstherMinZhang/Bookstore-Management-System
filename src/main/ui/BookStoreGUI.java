@@ -97,11 +97,30 @@ public class BookStoreGUI extends JFrame {
         showButton.addActionListener(new ShowButtonListener());
         loadButton.addActionListener(new LoadButtonListener());
         saveButton.addActionListener(new SaveButtonListener());
-        exitButton.addActionListener(e -> {
-            saveData();
-            System.exit(0);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int option = JOptionPane.showOptionDialog(
+                        BookStoreGUI.this,
+                        "Do you want to save changes before exiting?",
+                        "Confirm Exit",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        new Object[]{"Save and Exit", "Exit without Saving", "Cancel"},
+                        "Save and Exit"
+                );
+        
+                if (option == JOptionPane.YES_OPTION) { // Save and Exit
+                    saveData();
+                    System.exit(0);
+                } else if (option == JOptionPane.NO_OPTION) { // Exit without Saving
+                    System.exit(0);
+                }
+                // Cancel option does nothing
+            }
         });
-
+        
         bottomPanel.add(addButton);
         bottomPanel.add(removeButton);
         bottomPanel.add(editButton);
