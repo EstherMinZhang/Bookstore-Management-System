@@ -25,6 +25,7 @@ public class BookManager implements Writable {
     // EFFECTS: adds a book to the book lists.
     //
     public void addBook(Book book) {
+        EventLog.getInstance().logEvent(new Event("Added book: " + book.getBookName()));
         books.add(book);
     }
 
@@ -36,6 +37,7 @@ public class BookManager implements Writable {
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
             if (book.getBookName().equalsIgnoreCase(bookName)) {
+                EventLog.getInstance().logEvent(new Event("Remove book: " + book.getBookName()));
                 books.remove(i);
                 break;
             }
@@ -49,6 +51,7 @@ public class BookManager implements Writable {
     public void editBook(String bookName, String newAuthor, double newPrice) {
         for (Book book : books) {
             if (book.getBookName().equalsIgnoreCase(bookName)) {
+                EventLog.getInstance().logEvent(new Event("Edit book: " + book.getBookName()));
                 book.setAuthor(newAuthor);
                 book.setPrice(newPrice);
                 break;
@@ -63,6 +66,7 @@ public class BookManager implements Writable {
 
     @Override
     public JSONObject toJson() {
+        EventLog.getInstance().logEvent(new Event("All books saved."));
         JSONObject json = new JSONObject();
         json.put("books", booksToJson());
         return json;
