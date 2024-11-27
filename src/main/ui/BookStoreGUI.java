@@ -3,13 +3,14 @@ package ui;
 
 import model.Book;
 import model.BookManager;
+import model.EventLog;
+import model.Event;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -33,8 +34,9 @@ public class BookStoreGUI extends JFrame {
     @SuppressWarnings("methodlength")
     public BookStoreGUI() {
         super("Book Store App");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(800, 400);  // 增加宽度以适应图片
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE); // Window close button won't exit. User has to choose
+        setSize(800, 400);  
         setLayout(new BorderLayout());
 
         bookManager = new BookManager();
@@ -75,12 +77,6 @@ public class BookStoreGUI extends JFrame {
         Image scaledImg = img.getScaledInstance(200, 300, Image.SCALE_SMOOTH); 
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImg));
 
-        // 设置标签的文本和 位置
-        // imageLabel.setText("Welcome to Book Store");
-        // imageLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-        // imageLabel.setVerticalTextPosition(SwingConstants.TOP);
-
-
         centerPanel.add(scrollPane, BorderLayout.CENTER);
         centerPanel.add(imageLabel, BorderLayout.EAST);
 
@@ -118,8 +114,14 @@ public class BookStoreGUI extends JFrame {
         
                 if (option == JOptionPane.YES_OPTION) { // Save and Exit
                     saveData();
+
+                    printEventLog();
+
                     System.exit(0);
                 } else if (option == JOptionPane.NO_OPTION) { // Exit without Saving
+                    printEventLog();
+                    System.out.println("You did above action but not save.");
+
                     System.exit(0);
                 }
                 // Cancel option does nothing
@@ -140,6 +142,40 @@ public class BookStoreGUI extends JFrame {
         add(bottomPanel, BorderLayout.SOUTH);
 
         setVisible(true);
+
+        // setDefaultCloseOperation(DO_NOTHING_ON_CLOSE); // already put on the top
+        // Window close button won't exit. User has to choose
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int option = JOptionPane.showOptionDialog(
+                        BookStoreGUI.this,
+                        "Do you want to save changes before exiting?",
+                        "Confirm Exit",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        new Object[]{"Save and Exit", "Exit without Saving", "Cancel"},
+                        "Save and Exit"
+                );
+
+                if (option == JOptionPane.YES_OPTION) { // Save and Exit
+                    saveData();
+
+                    printEventLog();
+
+                    System.exit(0);
+                } else if (option == JOptionPane.NO_OPTION) { // Exit without Saving
+            
+                    printEventLog();
+                    System.out.println("You did above action but not save.");
+
+                    System.exit(0);
+                }
+                // Cancel option do nothing
+            }
+        });
+
     }
 
     // Modifies: The bookManager object (sets the books list)
@@ -249,6 +285,15 @@ public class BookStoreGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             saveData();
+        }
+    }
+
+    // Effects: Prints all events in the EventLog to the console.
+    private void printEventLog() { //
+        EventLog eventLog = EventLog.getInstance();//the only ArrayList
+        for (Event event : eventLog) {
+            //System.out.println(event.toString());
+            System.out.println(event);
         }
     }
 }
