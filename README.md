@@ -27,3 +27,18 @@
 - You can locate my visual component on the front page, which is a welcome picture.
 - You can save the state of my application by clicking the "Save" button. Alternatively, when you click the "Exit" button, the system will ask if you want to save your progress.
 - You can reload the state of my application by clicking the "Load" button. Alternatively, when you open the application, the system will ask if you want to load the previously saved data.
+
+## Phase4: Task 2
+Tue Nov 26 20:22:45 PST 2024
+Added book: ABC
+Tue Nov 26 20:22:57 PST 2024
+Added book: AAA
+Tue Nov 26 20:23:16 PST 2024
+Added book: YUYY
+Tue Nov 26 20:23:24 PST 2024
+Remove book: YUYY
+Tue Nov 26 20:23:40 PST 2024
+Edit book: AAA
+Tue Nov 26 20:23:48 PST 2024
+All books saved.
+minzhang@dhcp-206-87-153-57 ProjectStarter % 
