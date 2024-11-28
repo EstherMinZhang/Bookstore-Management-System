@@ -29,16 +29,25 @@
 - You can reload the state of my application by clicking the "Load" button. Alternatively, when you open the application, the system will ask if you want to load the previously saved data.
 
 ## Phase4: Task 2
-Tue Nov 26 20:22:45 PST 2024
+Wed Nov 27 14:47:17 PST 2024
 Added book: ABC
-Tue Nov 26 20:22:57 PST 2024
-Added book: AAA
-Tue Nov 26 20:23:16 PST 2024
-Added book: YUYY
-Tue Nov 26 20:23:24 PST 2024
-Remove book: YUYY
-Tue Nov 26 20:23:40 PST 2024
-Edit book: AAA
-Tue Nov 26 20:23:48 PST 2024
+Wed Nov 27 14:47:27 PST 2024
+Added book: aaa
+Wed Nov 27 14:47:34 PST 2024
+Added book: aab
+Wed Nov 27 14:47:39 PST 2024
+Remove book: aab
+Wed Nov 27 14:47:55 PST 2024
+Edit book: ABC
+Wed Nov 27 14:47:58 PST 2024
+All books printed.
+Wed Nov 27 14:48:16 PST 2024
 All books saved.
-minzhang@dhcp-206-87-153-57 ProjectStarter % 
+minzhang@Mins-MacBook-Air ProjectStarter % 
+
+## Phase4: Task 3
+If I had more time, I would refactor the design using the Composite Pattern. The idea is to create a unified structure that allows both individual books and categories to be managed uniformly, enhancing flexibility. First, I would define a common interface or abstract class called BookComponent, which would encapsulate all book-related operations such as adding, removing, or displaying information. This interface ensures that both individual books and categories are treated consistently.
+
+The Book class would serve as the leaf node in this design. It represents individual books and implements the BookComponent interface. This class would handle basic operations like returning the book's name, price, or displaying its details. As a leaf node, it does not manage any child components.
+
+The Category class would act as the composite node, also implementing the BookComponent interface. The Category class would take over the functionality of the BookManager class. It would represent categories of books, allowing for the inclusion of both individual books and subcategories. The Category class would manage child components by implementing methods for adding or removing children and performing operations (e.g., displaying details) across all child components.
