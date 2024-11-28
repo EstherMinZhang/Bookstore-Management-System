@@ -42,7 +42,7 @@ Edit book: ABC
 - Wed Nov 27 14:47:58 PST 2024
 All books printed.
 - Wed Nov 27 14:48:16 PST 2024
-- All books saved.
+All books saved.
 
 ## Phase4: Task 3
 If I had more time, I would refactor the design using the Composite Pattern. The idea is to create a unified structure that allows both individual books and categories to be managed uniformly, enhancing flexibility. First, I would define a common interface or abstract class called BookComponent, which would encapsulate all book-related operations such as adding, removing, or displaying information. This interface ensures that both individual books and categories are treated consistently.
