@@ -267,6 +267,7 @@ public class BookStoreGUI extends JFrame {
                         + ", Author: " + book.getAuthor()
                         + ", Price: $" + book.getPrice() + "\n");
             }
+            bookManager.forLogShowAll();
         }
     }
     
@@ -289,7 +290,7 @@ public class BookStoreGUI extends JFrame {
     }
 
     // Effects: Prints all events in the EventLog to the console.
-    private void printEventLog() { //
+    private void printEventLog() { //help method
         EventLog eventLog = EventLog.getInstance();//the only ArrayList
         for (Event event : eventLog) {
             //System.out.println(event.toString());

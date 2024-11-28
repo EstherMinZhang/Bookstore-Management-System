@@ -82,4 +82,8 @@ public class BookManager implements Writable {
 
         return jsonArray;
     }
+
+    public void forLogShowAll() {
+        EventLog.getInstance().logEvent(new Event("All books printed."));  // called by class name
+    }
 }

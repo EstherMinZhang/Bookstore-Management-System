@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -83,6 +84,23 @@ public class BookManagerTest {
 
         bookManager.editBook("No this book", "no this author", 15);
         
+    }
+    
+    @Test
+    public void testForLogShowAll() {
+
+        bookManager.forLogShowAll();
+        
+        EventLog eventLog = EventLog.getInstance();
+    
+        boolean foundEvent = false;
+        for (Event event : eventLog) {
+            if (event.getDescription().equals("All books printed.")) {
+                foundEvent = true;
+                break;
+            }
+        }
+        assertTrue(foundEvent);
     }
 
     // @Test
