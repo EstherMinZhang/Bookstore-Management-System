@@ -29,21 +29,20 @@
 - You can reload the state of my application by clicking the "Load" button. Alternatively, when you open the application, the system will ask if you want to load the previously saved data.
 
 ## Phase4: Task 2
-Wed Nov 27 14:47:17 PST 2024
+- Wed Nov 27 14:47:17 PST 2024
 Added book: ABC
-Wed Nov 27 14:47:27 PST 2024
+- Wed Nov 27 14:47:27 PST 2024
 Added book: aaa
-Wed Nov 27 14:47:34 PST 2024
+- Wed Nov 27 14:47:34 PST 2024
 Added book: aab
-Wed Nov 27 14:47:39 PST 2024
+- Wed Nov 27 14:47:39 PST 2024
 Remove book: aab
-Wed Nov 27 14:47:55 PST 2024
+- Wed Nov 27 14:47:55 PST 2024
 Edit book: ABC
-Wed Nov 27 14:47:58 PST 2024
+- Wed Nov 27 14:47:58 PST 2024
 All books printed.
-Wed Nov 27 14:48:16 PST 2024
-All books saved.
-minzhang@Mins-MacBook-Air ProjectStarter % 
+- Wed Nov 27 14:48:16 PST 2024
+- All books saved.
 
 ## Phase4: Task 3
 If I had more time, I would refactor the design using the Composite Pattern. The idea is to create a unified structure that allows both individual books and categories to be managed uniformly, enhancing flexibility. First, I would define a common interface or abstract class called BookComponent, which would encapsulate all book-related operations such as adding, removing, or displaying information. This interface ensures that both individual books and categories are treated consistently.
