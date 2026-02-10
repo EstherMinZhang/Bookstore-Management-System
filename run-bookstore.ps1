@@ -12,7 +12,7 @@ if (-not (Test-Path $out)) {
   New-Item -ItemType Directory -Force $out | Out-Null
 }
 
-# 自动把项目里已有的所有 jar 加进 classpath（不移动、不新增任何文件）
+# Automatically add all existing JAR files in the project to the classpath (without moving or adding any files).
 $jarFiles = Get-ChildItem -Recurse -Filter *.jar
 $cp = $out
 if ($jarFiles) { $cp = $cp + ";" + ($jarFiles.FullName -join ";") }
